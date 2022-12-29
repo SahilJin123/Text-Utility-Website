@@ -22,9 +22,7 @@ def analyze(request):
     djnewlineremover = request.GET.get('newlineremover','off')
     djextraspaceremover = request.GET.get('extraspaceremover','off')
     djcharcount = request.GET.get('charcount','off')
-    #Analyze the text
-    for char in djtext:
-            print(char)
+    
     punctuations = '''!"#$%&'()*+, -./:;<=>?@[\]^_`{|}~'''
     analyzed=""
     if djrempunc=='on' and djcapfirst=='off':
@@ -58,15 +56,17 @@ def analyze(request):
                 analyzed=analyzed+char
         params={'purpose':'Extra Space Remove','analyzed_text':analyzed}
         return render(request,'analyze.html',params)
-    elif(djcharcount=='on'):
+    else:
+        params={'purpose':'','analyzed_text':djtext}
+        return render(request,'analyze.html',params)
+
+
+    if(djcharcount=='on'):
         count = 0
         for char in djtext:
             print(char)
             count+=1
         params={'purpose':'Character Count','analyzed_text':f'Number of Character in this document is {count}'}
-        return render(request,'analyze.html',params)
-    else:
-        params={'purpose':'','analyzed_text':djtext}
         return render(request,'analyze.html',params)
 
 

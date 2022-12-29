@@ -20,14 +20,14 @@ from .import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.index,name = 'index'),
-    path('analyze/',views.analyze,name = 'analyze'),
+    path('analyze',views.analyze,name = 'analyze'),
     # path('removepunc/',views.removepunc,name='rempun'),
     # path(' ',views.capfirst,name='capfirst'),
     # path('newlineremove/',views.newlineremove,name='newlineremove'),
     # path('spaceremove/',views.spaceremove,name='spaceremove'),
     # path('charcount/',views.charcount,name='charcount'),
-     path('about/',views.about,name='about'),
-     path('contact/',views.contact,name='contact')
+     path('about',views.about,name='about'),
+     path('contact',views.contact,name='contact')
     # path('readFile/',views.read_file,name='readFile'),
     # path('personalNavigator/',views.personal_navigator,name='personalNavigator')
 ]

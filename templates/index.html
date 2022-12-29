@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <title>Text Utils</title>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -43,7 +43,7 @@
       </div>
       
       <div class="container">
-        <form action="/analyze" method ='get'>
+        <form action="/analyze" method ='post'>{% csrf_token %}
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Enter your text here and let Text Utils do the magic</label>
                 <textarea class="form-control" name='text' id="exampleFormControlTextarea1" rows="21"></textarea>

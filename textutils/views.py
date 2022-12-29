@@ -15,13 +15,13 @@ def index(request):
 
 def analyze(request):
     #get the text
-    djtext=request.GET.get('text','default')
+    djtext=request.POST.get('text','default')
     #checkbox value
-    djrempunc=request.GET.get('removepunc','off ')
-    djcapfirst = request.GET.get('capfirst','off')
-    djnewlineremover = request.GET.get('newlineremover','off')
-    djextraspaceremover = request.GET.get('extraspaceremover','off')
-    djcharcount = request.GET.get('charcount','off')
+    djrempunc=request.POST.get('removepunc','off ')
+    djcapfirst = request.POST.get('capfirst','off')
+    djnewlineremover = request.POST.get('newlineremover','off')
+    djextraspaceremover = request.POST.get('extraspaceremover','off')
+    djcharcount = request.POST.get('charcount','off')
     
     punctuations = '''!"#$%&'()*+, -./:;<=>?@[\]^_`{|}~'''
     analyzed=""
@@ -45,7 +45,7 @@ def analyze(request):
     elif(djnewlineremover=='on'):
         analyzed=""
         for char in djtext:
-            if char != "\n":
+            if char != "\n" and char!='\r':
                 analyzed=analyzed+char
         params={'purpose':'Remove New Line','analyzed_text':analyzed}
         return render(request,'analyze.html',params)
